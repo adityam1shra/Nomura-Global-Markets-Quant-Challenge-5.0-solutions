@@ -2,15 +2,13 @@
 
 Nomura's Global Markets Quant Challenge is a quantitative finance competition that tests participants on real-world problems spanning pricing, risk, and market microstructure. The fifth edition presented three problems, two of which are included in this repository. Each problem is graded on implementation accuracy, system design, and written documentation.
 
-Participant ID: **240061**
-
 ---
 
 ## Question 2 — Interest Rate Curve Construction and Pricing
 
 The task involves building a full interest rate curve construction engine from scratch in C++17. Starting from observed market quotes for cash deposits and interest rate swaps, the system bootstraps discount factors across a set of maturity nodes and interpolates between them using two methods: linear interpolation on log-discount factors, and an averaged-quadratic scheme.
 
-The constructed curves are then used to price a new vanilla interest rate swap — computing present value and par swap rate from the perspective of the fixed-rate payer. Beyond pricing, the problem requires an analytical derivation of DV01-style risks: the sensitivity of the swap's present value to each market quote used in calibration. Numerical approximations such as bump-and-revalue are explicitly disallowed.
+The constructed curves are then used to price a new vanilla interest rate swap, computing present value and par swap rate from the perspective of the fixed-rate payer. Beyond pricing, the problem requires an analytical derivation of DV01-style risks: the sensitivity of the swap's present value to each market quote used in calibration. Numerical approximations such as bump-and-revalue are explicitly disallowed.
 
 The final component is a generic, extensible system design that cleanly decouples instrument type, curve calibration logic, and interpolation method. The architecture is expected to support new instruments or interpolation schemes with minimal friction, following object-oriented design principles.
 
